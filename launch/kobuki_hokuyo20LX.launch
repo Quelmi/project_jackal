@@ -1,7 +1,7 @@
 <!--
   Kobuki Hokuyo launcher
  -->
-<launch>  
+<launch>
   <!--<arg name="robot_name" default="kobuki"/> -->
 
   <!--<group ns="$(arg robot_name)"> -->
@@ -10,13 +10,13 @@
     <node pkg="tf" type="static_transform_publisher" name="basefp_to_scan" args="0.145 0.0 0.0 0.0 0.0 0.0 $(arg robot_name)/base_link $(arg robot_name)/base_scan 100"/>
     -->
 
- <!-- <node pkg="tf" type="static_transform_publisher" name="frontmount_to_scan" args="0.0 0.0 0.04 0.0 0.0 0.0 front_mount laser_scan 100"/> -->
-    
+ <!-- <node pkg="tf" type="static_transform_publisher" name="frontmount_to_scan" args="0.0 0.0 0.04 0.0 0.0 0.0 front_mount laser_scan 1000"/>-->
+
   <!-- Launch hokuyo laser -->
   <node pkg="urg_node" type="urg_node" name="urg_node" output="screen" respawn="true">
     <param name="ip_address" value="192.168.0.10"/>
     <param name="serial_baud" value="115200"/>
-    <param name="frame_id" value="laser_scan"/>
+    <param name="frame_id" value="front_laser"/>
     <param name="calibrate_time" value="true"/>
     <param name="publish_intensity" value="false"/>
     <param name="publish_multiecho" value="false"/>
